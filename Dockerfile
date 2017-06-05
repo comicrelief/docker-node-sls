@@ -1,5 +1,6 @@
 FROM node:7-alpine
 
+RUN apk add --no-cache python
 RUN apk add --no-cache git
 
 WORKDIR /app
