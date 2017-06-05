@@ -1,4 +1,4 @@
-FROM node:8-slim
+FROM node:7-alpine
 
 ## Install AWS CLI.
 RUN apt-get install awscli
