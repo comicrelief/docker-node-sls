@@ -10,4 +10,5 @@ RUN \
 
 ## Install Serverless
 WORKDIR /app
+RUN npm -g install shelljs
 RUN npm -g install serverless
