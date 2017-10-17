@@ -10,4 +10,4 @@ RUN \
 
 ## Install Serverless
 WORKDIR /app
-RUN npm -g install serverless
+RUN yarn global add serverless
