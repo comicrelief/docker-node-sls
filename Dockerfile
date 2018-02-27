@@ -1,4 +1,4 @@
-FROM node:6-alpine
+FROM node:8.9.4x-alpine
 
 ## Install AWS CLI.
 RUN \
