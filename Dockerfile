@@ -1,12 +1,8 @@
-FROM node:8.9.4-alpine
+FROM node:10.16.0-jessie
 
-## Install AWS CLI.
-RUN \
-  mkdir -p /aws && \
-  apk -Uuv add groff less python py-pip && \
-  pip install awscli && \
-  apk --purge -v del py-pip && \
-  rm /var/cache/apk/*
+RUN apt-get update && apt-get install -y --force-yes \
+    awscli \
+    --no-install-recommends
 
 ## Install Serverless
 WORKDIR /app
