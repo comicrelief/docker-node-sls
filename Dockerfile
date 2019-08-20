@@ -3,13 +3,9 @@ FROM node:10.16.0-jessie
 # AWS CLI needs the PYTHONIOENCODING environment varialbe to handle UTF-8 correctly:
 ENV PYTHONIOENCODING=UTF-8
 
-RUN apt-get install -y \
-    less \
-    man \
-    python \
+RUN apt-get update && apt-get install -y --force-yes \
     python-pip \
-    python-virtualenv \
-    zip
+    --no-install-recommends
 
 RUN pip install awscli
 
