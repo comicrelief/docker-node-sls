@@ -1,12 +1,17 @@
 FROM node:10.16.0-jessie
 
-## Install AWS CLI.
-RUN \
-  mkdir -p /aws && \
-  apk -Uuv add groff less python py-pip && \
-  pip install awscli && \
-  apk --purge -v del py-pip && \
-  rm /var/cache/apk/*
+# AWS CLI needs the PYTHONIOENCODING environment varialbe to handle UTF-8 correctly:
+ENV PYTHONIOENCODING=UTF-8
+
+RUN apt-get install -y \
+    less \
+    man \
+    python \
+    python-pip \
+    python-virtualenv \
+    zip
+
+RUN pip install awscli
 
 ## Install Serverless
 WORKDIR /app
