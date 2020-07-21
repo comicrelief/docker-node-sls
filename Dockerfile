@@ -1,13 +1,14 @@
-FROM node:10.16.0-jessie
+FROM node:10
 
 # AWS CLI needs the PYTHONIOENCODING environment varialbe to handle UTF-8 correctly:
 ENV PYTHONIOENCODING=UTF-8
 
-RUN apt-get update && apt-get install -y --force-yes \
-    python-pip \
-    --no-install-recommends
+RUN apt-get update && apt-get install -y \
+    python3-pip python3-setuptools \
+    --no-install-recommends \
+    && python3 -m pip install --upgrade --force-reinstall pip
 
-RUN pip install awscli
+RUN pip3 install awscli
 
 ## Install Serverless
 WORKDIR /app
