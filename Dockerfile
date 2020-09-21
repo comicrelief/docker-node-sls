@@ -12,7 +12,7 @@ RUN pip3 install awscli
 
 ## Install Serverless
 WORKDIR /app
-RUN npm -g install serverless
+RUN npm -g install serverless@1
 
 RUN apt-get install -y locales locales-all
 ENV LC_ALL en_US.UTF-8
